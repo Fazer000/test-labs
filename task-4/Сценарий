@@ -1,1 +1,1 @@
-
+Перед запуском теста небоходимо установить библиотеку: npm install --save-dev cypress-file-upload
