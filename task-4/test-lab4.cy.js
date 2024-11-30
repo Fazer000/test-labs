@@ -1,3 +1,5 @@
+import 'cypress-file-upload';
+
 describe('template spec', () => {
   beforeEach(() => {
     cy.visit('https://demoqa.com');
@@ -35,4 +37,33 @@ describe('template spec', () => {
         });
     });
   });
+
+  it ('Тест 2', () => {
+    const fileName = '/ttt.PNG';
+
+    cy.get('.avatar.mx-auto.white').eq(0).click();
+    cy.get('.header-wrapper').eq(1).click();
+    cy.get('.element-list.collapse.show').click();
+
+    cy.get('.mr-sm-2.form-control#firstName').type("Sergei", {force: true});
+    cy.get('.mr-sm-2.form-control#lastName').type("Sergei", {force: true});
+    cy.get('.mr-sm-2.form-control#userEmail').type("Sergei", {force: true});
+    cy.get('.mr-sm-2.form-control#lastName').type("Sergei", {force: true});
+    cy.get('.custom-control-input#gender-radio-1').click({force: true});
+    cy.get('.mr-sm-2.form-control#userNumber').type("Sergei", {force: true});
+    cy.get('.form-control#dateOfBirthInput').type("11 Oct 2024", {force: true});
+    cy.get('.custom-control-input#hobbies-checkbox-1').click({force: true});
+    cy.get('.custom-control-input#hobbies-checkbox-3').click({force: true});
+
+    cy.get('input[type="file"]')
+      .attachFile(fileName);
+
+    cy.get('.form-control#currentAddress').type("TEST", {force: true});
+    cy.get('button#submit.btn.btn-primary').click({force: true});
+  });
+
+  it('Тест 3', () => {
+    
+  });
+
 });
