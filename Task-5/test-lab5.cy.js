@@ -18,7 +18,7 @@ describe('template spec', () => {
 
         cy.visit('https://burnitalldown.ru/admin-panel/admin-panel.php#users');
 
-        const email = `testuser${Date.now()}@gmail.com`; // Генерация уникального email
+        const email = `testuser${Date.now()}@gmail.com`;
         const password = '123456';
         const firstName = 'UserFirstName';
         const lastName = 'UserLastName';
@@ -33,7 +33,6 @@ describe('template spec', () => {
             .should('be.visible')
             .and('contain', 'Ученик зарегистрирован');
 
-        // Удаление пользователя
         cy.get('[data-test=deleteUser]').eq(9).click();
 
         cy.get('[data-test=successMessage]')
@@ -41,7 +40,7 @@ describe('template spec', () => {
             .and('contain', 'Пользователь удален');
     });
 
-   it('Тест скорости загрузки страницы', () => {
+    it('Тест скорости загрузки страницы', () => {
         const startTime = performance.now();
         cy.visit(`https://burnitalldown.ru/index?t=${Date.now()}`);
         const endTime = performance.now();
